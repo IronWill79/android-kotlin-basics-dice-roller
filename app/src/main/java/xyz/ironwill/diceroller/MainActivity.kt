@@ -29,8 +29,12 @@ class MainActivity : AppCompatActivity() {
         val die = Dice(6)
         val dieRoll = die.roll()
 
+        val die2 = Dice(6)
+        val dieRoll2 = die2.roll()
+
         // Find the ImageView in the layout
-        val diceImage: ImageView = findViewById(R.id.imageView)
+        val diceImage: ImageView = findViewById(R.id.die1)
+        val diceImage2: ImageView = findViewById(R.id.die2)
 
         // Determine which drawable resource ID to use based on die roll
         val drawableResource = when (dieRoll) {
@@ -42,11 +46,22 @@ class MainActivity : AppCompatActivity() {
             else -> R.drawable.dice_6
         }
 
+        val drawableResource2 = when (dieRoll2) {
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
+        }
+
         // Update the ImageView with the correct drawable resource ID
         diceImage.setImageResource(drawableResource)
+        diceImage2.setImageResource(drawableResource2)
 
         // Update the content description
         diceImage.contentDescription = dieRoll.toString()
+        diceImage2.contentDescription = dieRoll2.toString()
     }
 }
 
